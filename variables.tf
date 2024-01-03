@@ -10,9 +10,3 @@ variable "public_key" {
   type        = string
   default     = "/home/lortega/.ssh/ma_cle_rsa.pub"
 }
-
-variable "instance_type" {
-  description = "Type d'instance EC2"
-  type        = string
-  default     = "t2.micro"
-}
