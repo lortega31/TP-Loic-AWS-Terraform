@@ -6,7 +6,7 @@ provider "aws" {
 }
 
 resource "aws_vpc" "my_vpc" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = "192.168.1.0"
 }
 
 resource "aws_security_group" "my_security_group" {
@@ -40,12 +40,7 @@ resource "aws_security_group" "my_security_group" {
 resource "aws_instance" "my_instance" {
   ami             = "ami-02ea01341a2884771"
   instance_type   = "t2.micro"
-  key_name        = var.instance_name
-  vpc_security_group_ids = [aws_security_group.my_security_group.id]
-  user_data       = <<-EOF
-    #!/bin/bash
-    # Votre script de configuration ici
-  EOF
+
 
   tags = {
     Name = var.instance_name
